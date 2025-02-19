@@ -79,6 +79,17 @@ async function encontrarBitcoins(key, min, max) {
     console.log('Processo interrompido ou concluído.');
 }
 
+// Adicionar sistema de checkpoint para recuperação
+const salvarCheckpoint = (key) => {
+  fs.writeFileSync('checkpoint.json', JSON.stringify({ lastKey: key }));
+};
 
+const carregarCheckpoint = () => {
+  try {
+    return JSON.parse(fs.readFileSync('checkpoint.json')).lastKey;
+  } catch {
+    return null;
+  }
+};
 
 export default encontrarBitcoins;

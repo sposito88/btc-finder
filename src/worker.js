@@ -15,7 +15,7 @@ async function encontrarBitcoinsWorker(key, min, max, workerData) {
     const testadas = new Set();
     let chavesVerificadas = 0;
     //foi adicionado um limite de chaves para evitar lotar a memória
-    const maxTestadasSize = 1_000_000;
+    const maxTestadasSize = 5_000_000;
 
     console.log(`Worker para Bloco ${blocoId}: Buscando Bitcoins de forma aleatória...`);
 
@@ -115,3 +115,9 @@ parentPort.on('message', (workerData) => {
     const { key, min, max } = workerData;
     encontrarBitcoinsWorker(BigInt(key), BigInt(min), BigInt(max), workerData);
 });
+
+// Adicionar logging de performance
+const logPerformance = (chavesVerificadas, tempo) => {
+  const velocidade = chavesVerificadas / tempo;
+  console.log(`Performance: ${velocidade.toFixed(2)} chaves/segundo`);
+};

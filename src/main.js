@@ -168,3 +168,5 @@ process.on('SIGINT', () => {
     rl.close();
     process.exit();
 });
+
+// Mover as métricas para web-interface/app.js onde o 'app' está definido
