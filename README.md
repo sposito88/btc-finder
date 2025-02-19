@@ -31,7 +31,67 @@ Execute os seguintes comandos no terminal:
  * Executa a imagem contruída no passo anterior:
    ``` docker run -it --name btc-finder -p 3000:3000 btc-finder```
 
+## 🚀 Melhorias Recentes
 
+### 1. Sistema de Cache
+- Implementação de cache inteligente para consultas de saldo
+- TTL (Time To Live) configurável
+- Validação automática de cache
+
+### 2. Sistema de Logs Aprimorado
+- Logs estruturados com timestamps
+- Diferentes níveis de log (INFO, WARN, ERROR, SYSTEM, etc.)
+- Compressão automática de logs antigos (após 7 dias)
+- Diretório dedicado para armazenamento de logs
+
+### 3. Monitoramento e Métricas
+- Endpoint `/metrics` com métricas detalhadas
+- Endpoint `/health` para healthcheck
+- Endpoint `/status` com informações do sistema
+- Monitoramento de uso de memória
+- Métricas de performance
+
+### 4. Sistema de Backup
+- Backup automático a cada 6 horas
+- Backup de chaves e saldos
+- Diretório dedicado com timestamps
+- Logs de backup
+
+### 5. Segurança
+- Rate limiting para prevenção de ataques
+- Autenticação básica para acesso às chaves
+- Validação de credenciais
+- Proteção contra sobrecarga de requisições
+
+### 6. Notificações em Tempo Real
+- Sistema de notificações via WebSocket
+- Notificações de novas carteiras encontradas
+- Alertas de uso de memória
+- Notificações de erros
+
+### 7. Tratamento de Erros
+- Middleware global de erro
+- IDs únicos para cada erro
+- Logs detalhados de erros
+- Tratamento de rotas não encontradas
+
+### 8. Performance
+- Debounce em operações frequentes
+- Otimização de uso de memória
+- Coleta de lixo automática
+- Compressão de dados antigos
+
+### 9. Monitoramento de Sistema
+- Monitoramento de uso de CPU
+- Monitoramento de memória
+- Alertas automáticos
+- Métricas de sistema em tempo real
+
+### 10. Melhorias na Interface Web
+- Métricas em tempo real
+- Sistema de autenticação
+- Endpoints para monitoramento
+- Logs de acesso detalhados
 
 [install-node]: https://nodejs.org/en/download/
 [install-npm]: https://www.npmjs.com/get-npm
